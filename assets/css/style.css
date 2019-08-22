@@ -1,0 +1,176 @@
+/*
+essential styles:
+these make the slideshow work
+*/
+
+*{
+  box-sizing: border-box;
+
+}
+
+body {
+  margin: 0;
+}
+
+.carousel {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slides {
+  position: relative;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.slide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 1s;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/*
+non-essential styles:
+just for appearance; change whatever you want
+*/
+
+.slide {
+  font-size: 40px;
+  background: #333;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+}
+
+.slide:nth-of-type(1) {
+  background-image: url(../img/img_1.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.slide:nth-of-type(2) {
+  background-image: url(../img/img_2.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.slide:nth-of-type(3) {
+  background-image: url(../img/img_3.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.slide:nth-of-type(4) {
+  background-image: url(../img/img_4.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.slide:nth-of-type(5) {
+  background-image: url(../img/img_5.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+}
+
+.controls span {
+  text-align: center;
+  cursor: pointer;
+  color: rgba(255,255,255,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.control-pause {
+  font-size: 300px;
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+}
+
+.control-pause:hover,
+.control-pause:focus {
+  transition: opacity 1s ease-in 0.5s;
+  opacity: 1;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.control-prev {
+  font-size: 40px;
+  left: 0;
+  width: 10%;
+  height: 100%;
+}
+
+.control-prev:hover,
+.control-prev:focus {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  text-shadow: 0 0 10px #ffffff;
+}
+
+.control-next {
+  font-size: 40px;
+  right: 0;
+  width: 10%;
+  height: 100%;
+}
+
+.control-next:hover,
+.control-next:focus {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  text-shadow: 0 0 10px #ffffff;
+}
+
+.indicators {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  z-index: 4;
+  background: none;
+  margin-bottom: 20px;
+}
+
+.indicator {
+  display: inline-block;
+  border: 3px solid rgba(255,255,255,0.4);;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.indicator:not(:last-of-type) {
+  margin-right: 15px;
+}
+
+.indicator.active {
+  border-color: #ffffff;
+  box-shadow: 0 0 10px 0 #ffffff;
+}
